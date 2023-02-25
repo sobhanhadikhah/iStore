@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@font-face {
+    font-family:'HarryP';
+    src: url("./fonts/HarryP.ttf");
+}
+.HarryP{
+    font-family:"HarryP";
+}
+@font-face {
+    font-family: 'HaloHandletter';
+    src: url('./fonts/HaloHandletter.otf');
+}
+@font-face {
+    font-family: 'SegoeUIBold';
+    src: url('./fonts/SegoeUIBold.ttf');
+}
+@font-face {
+    font-family:"SFPRODISPLAYREGULAR" ;
+    src: url('./fonts/SFPRODISPLAYREGULAR.OTF');
+}
