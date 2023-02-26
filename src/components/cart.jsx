@@ -18,6 +18,8 @@ const Card = () => {
     }
     return (
         <div className='card' ref={cardRef} onMouseMove={handleOnMouseMove}  >
+            <div className='card-border' ></div>
+            <div className='card-content' ></div>
 
         </div>
     )

@@ -1,6 +1,8 @@
 import Navbar from "./navbar";
-import Card from "./card";
+import Card from "./cart";
+import ShowPages from "./showPages";
 export {
     Navbar,
-    Card
+    Card,
+    ShowPages
 }

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { navBarText } from '../utlies/constanse';
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { HiMenu } from "react-icons/hi"
+
 const Navbar = () => {
 
     return (
@@ -26,11 +27,7 @@ const Navbar = () => {
                     </div>
                 </div>
             </div>
-            <div className='bg-black bg-opacity-30  font-SFPRODISPLAYREGULAR  backdrop-filter backdrop-blur-lg sticky z-50 top-0  ' >
-                <div className='max-w-[1240px] mx-auto ' >
-                    <h3 className='ml-4 py-3 leading-[14px] ' >Page</h3>
-                </div>
-            </div>
+
         </div>
     )
 }

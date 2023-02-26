@@ -1,3 +1,7 @@
+:root{
+    --bg-color: rgb(20,20,20);
+    --card-color:rgb(23,23,23)
+}
 .cards{
     display: flex;
     flex-wrap: wrap;
@@ -6,21 +10,22 @@
     width: calc(100% -20px);
     }
     .card{
+        border: 0.1px solid #C0C0C0 ;
+
         border-radius: 10px;
         cursor: pointer;
-        background-color: rgba(255, 255, 255, 0.02);
-        border: 1px solid rgba(255, 255, 255, 0.1) ;
+        background-color: white;
         width: 300px;
         height: 260px;
         position: relative;
     }
-    .card:hover::before{
+    .card:hover::before,.card:hover> .card-border {
         opacity: 1;
     }
-    .card::before{
-        background: radial-gradient(
-            800px circle at var(--mouse-x) var(--mouse-y) ,rgba(255,255,255,0.06),transparent 40%
-        );
+    .card::before,
+    .card-border
+    {
+        
      height: 100%;
      position: absolute;
      width: 100%;
@@ -32,3 +37,25 @@
      border-radius: inherit;
      z-index: 2;   
     }
+    .card::before{
+        background: radial-gradient(
+            800px circle at var(--mouse-x) var(--mouse-y) ,rgba(162, 116, 241, 0.2),transparent 40%
+        );
+        z-index: 3;
+    }
+    .card > .card-border{
+        background: radial-gradient(
+            400px circle at var(--mouse-x) var(--mouse-y) ,rgba(162, 116, 241, 0.2),transparent 40%
+        );
+        z-index:1 ;
+    }
+  .card >  .card-content{
+    background-color: var(--card-color) ;
+        height: calc(100%- 2px);
+        border-radius: inherit ;
+        margin: 1px;
+        position: relative;
+        width: calc(100%-2px);
+        z-index: 2;
+  }
+  
