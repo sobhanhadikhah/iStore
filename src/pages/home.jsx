@@ -1,13 +1,23 @@
-import React, { useEffect, useState } from 'react'
-import { Card } from '../components';
+import React, { useEffect, useState, useContext } from 'react'
+import { Card, ShowPages, CartProduct } from '../components';
 import "../styles/card.css";
-import axios from 'axios';
-const Home = () => {
+import 'swiper/css';
 
+import { Swiper, SwiperSlide } from "swiper/react";
+import axios from 'axios';
+import productsContext from '../context/context';
+const Home = () => {
+    const Products = useContext(productsContext);
     return (
-        <div className='  max-w-[1240px]  mx-auto mt-24 h-screen ' >
-            <div className='cards   mx-auto  ' >
-                is worked
+        <div>
+            <ShowPages title="Home" />
+            <div className='  max-w-[1240px]  mx-auto  h-screen  '>
+                <h1>Home Products</h1>
+                <div className='grid lg:grid-cols-4 grid-cols-1 gap-8 ' >
+                    {Products.dataP.map((datas) => {
+                        return <CartProduct key={datas.id} title={datas.title} img={datas.image} price={datas.price} />
+                    })}
+                </div>
             </div>
         </div>
     )

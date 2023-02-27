@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
-import { Home, Loading, NotFoundPage } from "./pages";
+import { Home, Loading, NotFoundPage, ProductsList } from "./pages";
 import { useQuery, useQueryClient } from 'react-query';
-import { Navbar, ShowPages } from "./components";
+import { Navbar, ShowPages, CartProduct } from "./components";
 import ProductsContext from "./context/context";
 import axios from 'axios';
 import { Route, Routes } from 'react-router-dom';
@@ -16,6 +16,7 @@ function App() {
     console.log("fetching products from api ");
     const mrespone = await axios.request(options).then(function (respone) {
       console.log(respone.data);
+      setProductState(respone.data)
     })
   }
   const { isLoading, isSuccess, isError, data, error } = useQuery(
@@ -34,13 +35,14 @@ function App() {
 
   return (
     <div className='h-screen dark:bg-[#121212] bg-[#FAFAFA] overflow-auto ' >
-      <ProductsContext.Provider value={productState}>
+      <ProductsContext.Provider value={{ dataP: productState }}>
         <Navbar />
-        <ShowPages />
         <Routes>
           <Route path='/' element={<Home />} />
+          <Route path='products' element={<ProductsList />} />
           <Route path='*' element={<NotFoundPage />} />
         </Routes>
+
       </ProductsContext.Provider>
     </div>
   )
