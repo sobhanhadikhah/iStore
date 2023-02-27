@@ -18,7 +18,7 @@ const Navbar = () => {
                             <ul className='lg:flex text-[#f5f5ff] hidden space-x-8 mr-4   font-SFPRODISPLAYREGULAR  ' >
 
                                 {navBarText.map((text, i) => {
-                                    return <Link className='text-[14px] leading-[44px] hover:text-white ' key={text.id} >{text.title}</Link>
+                                    return <Link to={text.link} className='text-[14px] leading-[44px] hover:text-white ' key={text.id} >{text.title}</Link>
                                 })}
                                 <AiOutlineShoppingCart className='mt-[11px] hover:text-white cursor-pointer  ' size={20} />
                             </ul>

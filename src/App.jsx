@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react'
-import { Home, Loading } from "./pages";
+import { Home, Loading, NotFoundPage } from "./pages";
 import { useQuery, useQueryClient } from 'react-query';
 import { Navbar, ShowPages } from "./components";
 import ProductsContext from "./context/context";
 import axios from 'axios';
+import { Route, Routes } from 'react-router-dom';
 
 function App() {
   const [productState, setProductState] = useState([])
@@ -36,7 +37,10 @@ function App() {
       <ProductsContext.Provider value={productState}>
         <Navbar />
         <ShowPages />
-        <Home />
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='*' element={<NotFoundPage />} />
+        </Routes>
       </ProductsContext.Provider>
     </div>
   )

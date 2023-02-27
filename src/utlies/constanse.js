@@ -2,7 +2,7 @@ const navBarText = [
     {   
         id:"home",
         title:"Home",
-        link:"home",
+        link:"/",
     }
     ,
     {   
