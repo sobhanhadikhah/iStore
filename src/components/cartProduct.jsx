@@ -3,12 +3,14 @@ import { Link } from 'react-router-dom';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 function CartProduct({ title, img, price }) {
     return (
-        <Link className="group block overflow-hidden">
+        <Link className="group z-10 overflow-hidden justify-center items-center flex md:block md:mx-0 md:text-left flex-col text-center mx-8  ">
             <div className="relative h-[350px] sm:h-[450px]">
-                <img
+                <LazyLoadImage
+                    effect='blur'
                     src={img}
                     alt=""
-                    classNames="absolute inset-0 h-full w-full object-cover opacity-100 "
+
+
                 />
 
 
@@ -22,6 +24,7 @@ function CartProduct({ title, img, price }) {
                 </h3>
 
                 <p className="mt-1.5 tracking-wide text-gray-900">${price}</p>
+
             </div>
         </Link>
 
