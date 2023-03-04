@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react'
-import { Home, Loading, NotFoundPage, ProductsList } from "./pages";
+import { Home, Loading, NotFoundPage, ProductsList, ViewCardList } from "./pages";
 import { useQuery, useQueryClient } from 'react-query';
 import { Navbar, ShowPages, CartProduct } from "./components";
 import ProductsContext from "./context/context";
 import axios from 'axios';
 import { Route, Routes } from 'react-router-dom';
+
 
 function App() {
   const [productState, setProductState] = useState([])
@@ -41,6 +42,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='products' element={<ProductsList />} />
+          <Route path='gp' element={<ViewCardList />} />
           <Route path='products:id' element={<ProductsList />} />
           <Route path='*' element={<NotFoundPage />} />
         </Routes>

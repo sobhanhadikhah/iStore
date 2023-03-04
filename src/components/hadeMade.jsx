@@ -9,14 +9,14 @@ function HeaderMaderCarder({ img, title, price, id, porcutdss }) {
     }
 
     return (
-        <div className='border-2 bg-gray-200 border-blue-200 rounded-lg font-SFPRODISPLAYREGULAR ' >
+        <div className=' border-blue-200 rounded-lg font-SFPRODISPLAYREGULAR ' >
 
             <Link to={`/${id}`} className='flex flex-col  rounded-md border-t-2   mp-2 w-[300px] h-[400px] text-white'  >
-                <div className='bg-white items-center justify-center text-center flex ' >
+                <div className='bg-white items-center justify-center text-center flex ' > 
                     <img src={img} className='h-[230px] px-3 pt-2 ' alt={title} />
                 </div>
                 <div className='flex flex-col mx-3  ' >
-                    <h3 className='text-black mt-8 ' >{title.length > 40 ? title.slice(0, 40) + "..." : title}</h3>
+                    <h3 className='text-black mt-8 ' >{title.length > 60 ? title.slice(0, 60) + "..." : title}</h3>
                 </div>
             </Link>
             <div className='' >
