@@ -1,6 +1,7 @@
 import React from 'react'
-
+import { useSelector } from 'react-redux';
 function PopupCards({ close }) {
+    const prouctsCrads = useSelector(state => state.cartState.cartList);
     return (
         <div className='absolute right-[20vh] pt-12 hidden lg:flex ' >
             <div
@@ -32,77 +33,30 @@ function PopupCards({ close }) {
 
                 <div class="mt-6 space-y-6">
                     <ul class="space-y-4">
-                        <li class="flex items-center gap-4">
-                            <img
-                                src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=830&q=80"
-                                alt=""
-                                class="h-16 w-16 rounded object-cover"
-                            />
+                        {prouctsCrads.map((p, i) => (
+                            <li class="flex items-center gap-4">
+                                <img
+                                    src={p.img}
+                                    alt={p.title}
+                                    class="h-16 w-16 rounded object-cover"
+                                />
 
-                            <div>
-                                <h3 class="text-sm text-gray-900">Basic Tee 6-Pack</h3>
+                                <div>
+                                    <h3 class="text-sm text-gray-900">{p.title}</h3>
 
-                                <dl class="mt-0.5 space-y-px text-[10px] text-gray-600">
-                                    <div>
-                                        <dt class="inline">Size:</dt>
-                                        <dd class="inline">XXS</dd>
-                                    </div>
+                                    <dl class="mt-0.5 space-y-px text-[10px] text-gray-600">
+                                        <div>
+                                            <dt class="inline">Price:</dt>
+                                            <dd class="inline">{p.price}</dd>
+                                        </div>
 
-                                    <div>
-                                        <dt class="inline">Color:</dt>
-                                        <dd class="inline">White</dd>
-                                    </div>
-                                </dl>
-                            </div>
-                        </li>
 
-                        <li class="flex items-center gap-4">
-                            <img
-                                src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=830&q=80"
-                                alt=""
-                                class="h-16 w-16 rounded object-cover"
-                            />
+                                    </dl>
+                                </div>
+                            </li>
 
-                            <div>
-                                <h3 class="text-sm text-gray-900">Basic Tee 6-Pack</h3>
+                        ))}
 
-                                <dl class="mt-0.5 space-y-px text-[10px] text-gray-600">
-                                    <div>
-                                        <dt class="inline">Size:</dt>
-                                        <dd class="inline">XXS</dd>
-                                    </div>
-
-                                    <div>
-                                        <dt class="inline">Color:</dt>
-                                        <dd class="inline">White</dd>
-                                    </div>
-                                </dl>
-                            </div>
-                        </li>
-
-                        <li class="flex items-center gap-4">
-                            <img
-                                src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=830&q=80"
-                                alt=""
-                                class="h-16 w-16 rounded object-cover"
-                            />
-
-                            <div>
-                                <h3 class="text-sm text-gray-900">Basic Tee 6-Pack</h3>
-
-                                <dl class="mt-0.5 space-y-px text-[10px] text-gray-600">
-                                    <div>
-                                        <dt class="inline">Size:</dt>
-                                        <dd class="inline">XXS</dd>
-                                    </div>
-
-                                    <div>
-                                        <dt class="inline">Color:</dt>
-                                        <dd class="inline">White</dd>
-                                    </div>
-                                </dl>
-                            </div>
-                        </li>
                     </ul>
 
                     <div class="space-y-4 text-center">
