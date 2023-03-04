@@ -10,7 +10,7 @@ const Navbar = () => {
     const [Cardtoogle, setCardtoogle] = useState(false)
     const handlenavToggle = () => setNavToggle(!navToggle);
     return (
-        <div className='z-30  sticky  top-0 bg-[#1D1D1F] lg:backdrop-blur-lg lg:bg-opacity-40 lg:backdrop-filter ' >
+        <div className='z-30  sticky  top-0 bg-[#1D1D1F] lg:backdrop-blur-lg lg:bg-opacity-40 lg:backdrop-filter  ' >
             <div className='   ' >
                 <div className=' max-w-[1240px] mx-auto h-[98px]  ' >
                     <div className='flex justify-between py-8  ' >

@@ -35,11 +35,13 @@ function App() {
 
   return (
     <div className='h-screen dark:bg-[#121212] bg-[#FAFAFA] overflow-auto ' >
+
       <ProductsContext.Provider value={{ dataP: productState }}>
         <Navbar />
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='products' element={<ProductsList />} />
+          <Route path='products:id' element={<ProductsList />} />
           <Route path='*' element={<NotFoundPage />} />
         </Routes>
 

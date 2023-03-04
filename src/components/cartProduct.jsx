@@ -24,7 +24,9 @@ function CartProduct({ title, img, price }) {
                 </h3>
 
                 <p className="mt-1.5 tracking-wide text-gray-900">${price}</p>
+                <div className='mb-11' >
 
+                </div>
             </div>
         </Link>
 
