@@ -12,11 +12,11 @@ function HeaderMaderCarder({ img, title, price, id, porcutdss }) {
     return (
         <div className=' border-blue-200 rounded-lg font-SFPRODISPLAYREGULAR ' >
 
-            <Link to={`/${id}`} className='flex flex-col  rounded-md border-t-2   mp-2 w-[300px] h-[400px] text-white'  >
+            <Link to={`/products/${id}`} className='flex flex-col    rounded-md border-t-2   mp-2 w-[300px] h-[400px] text-white'  >
                 <div className='bg-white items-center justify-center text-center flex ' >
                     <LazyLoadImage src={img} effect='blur' className='h-[230px] px-3 pt-2 ' alt={title} />
                 </div>
-                <div className='flex flex-col mx-3  ' >
+                <div className='flex flex-col mx-3   ' >
                     <h3 className='text-black mt-8 ' >{title.length > 60 ? title.slice(0, 60) + "..." : title}</h3>
                 </div>
             </Link>
@@ -25,7 +25,7 @@ function HeaderMaderCarder({ img, title, price, id, porcutdss }) {
                     <p className='font-bold text-black  ' >${price}</p>
 
                 </div>
-                <button onClick={handeleAddItem} className='bg-blue-500 max-w-[140px] rounded-md m-2 text-white hover:bg-blue-600 capitalize  p-2 relative    ' >add to card</button>
+                <button onClick={handeleAddItem} className='bg-blue-500 max-w-[140px] rounded-md m-2 text-white hover:bg-blue-600 capitalize  py-1 px-[5.5px] relative    ' >add to card</button>
 
             </div>
         </div>

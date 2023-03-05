@@ -19,7 +19,7 @@ const Home = () => {
     return (
         <div className='w-full' >
             <div className='  ' >
-                <Swiper className='lg:h-[460px] h-[50%]  ' modules={[Navigation, Pagination, Scrollbar, A11y]} pagination={{ clickable: true }}
+                <Swiper className='lg:h-[70vh] h-[50%]  ' modules={[Navigation, Pagination, Scrollbar, A11y]} pagination={{ clickable: true }}
                     scrollbar={{ draggable: true }} effect='' spaceBetween={50} slidesPerView={1} autoplay="true" navigation >
                     <SwiperSlide className=' items-center justify-center flex  ' >
                         <div className='absolute text-center  pb-8 bg-white backdrop-blur-xl backdrop-filter bg-opacity-30 rounded-md px-4 ' >
@@ -27,7 +27,7 @@ const Home = () => {
                             <h3 className=' text-sm lg:text-lg pb-4 font-SFPRODISPLAYREGULAR w-[320px]  ' >Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus eaque perferendis, id neque dolorum, esse aliquam rerum minus delectus corrupti dolor alias, voluptates autem saepe. Debitis maxime temporibus quis magnam.</h3>
                             <Link to={`products`} className=' bg-black text-white px-4 py-1 font-SFPRODISPLAYREGULAR  rounded-md hover:bg-transparent hover:ring ring-black hover:text-black transition-all duration-150 ease-in-out  ' > Learn More  </Link>
                         </div>
-                        <img className=' w-screen lg:h-[460px] h-[460px]  object-top ' src="https://img.freepik.com/premium-photo/panorama-aurora-borealis-with-milky-way-galaxy-snow-mountain-coastline_49071-212.jpg?w=1380" alt="" />
+                        <img className=' w-screen lg:h-[70vh] h-[460px]  object-top ' src="https://img.freepik.com/premium-photo/panorama-aurora-borealis-with-milky-way-galaxy-snow-mountain-coastline_49071-212.jpg?w=1380" alt="" />
                     </SwiperSlide>
                     <SwiperSlide className=' items-center justify-center flex  ' >
                         <div className='absolute text-center  pb-8 bg-white backdrop-blur-xl backdrop-filter bg-opacity-30 rounded-md px-4 ' >
@@ -35,7 +35,7 @@ const Home = () => {
                             <h3 className=' text-sm lg:text-lg pb-4 font-SFPRODISPLAYREGULAR w-[320px]  ' >Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus eaque perferendis, id neque dolorum, esse aliquam rerum minus delectus corrupti dolor alias, voluptates autem saepe. Debitis maxime temporibus quis magnam.</h3>
                             <Link to={`products`} className=' bg-black text-white px-4 py-1 font-SFPRODISPLAYREGULAR  rounded-md hover:bg-transparent hover:ring ring-black hover:text-black transition-all duration-150 ease-in-out  ' > Learn More  </Link>
                         </div>
-                        <img className=' w-screen lg:h-[460px] h-[460px]  object-top ' src="https://img.freepik.com/premium-photo/panorama-aurora-borealis-with-milky-way-galaxy-snow-mountain-coastline_49071-212.jpg?w=1380" alt="" />
+                        <img className=' w-screen lg:h-[70vh] h-[460px]  object-top ' src="https://img.freepik.com/premium-photo/panorama-aurora-borealis-with-milky-way-galaxy-snow-mountain-coastline_49071-212.jpg?w=1380" alt="" />
                     </SwiperSlide>
                 </Swiper>
             </div>
@@ -45,9 +45,9 @@ const Home = () => {
                 </div>
                 <div className=' hidden lg:flex   ' >
                     <Swiper className='  ' modules={[Navigation, Pagination, Scrollbar, A11y]} pagination={{ clickable: true }}
-                        scrollbar={{ draggable: true }} effect='' spaceBetween={50} slidesPerView={3} autoplay="true" navigation   >
+                        scrollbar={{ draggable: true }} effect='blur' spaceBetween={50} slidesPerView={3} autoplay="true" navigation   >
                         {Products.dataP.map((text, i) => {
-                            return <SwiperSlide><HeaderMaderCarder id={text.id} img={text.image} key={text.id} title={text.title} price={text.price} /></SwiperSlide>
+                            return <SwiperSlide key={text.id} ><HeaderMaderCarder id={text.id} img={text.image} title={text.title} price={text.price} /></SwiperSlide>
                         })}
 
                     </Swiper>

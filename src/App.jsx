@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Home, Loading, NotFoundPage, ProductsList, ViewCardList } from "./pages";
+import { Home, Loading, NotFoundPage, ProductsInfo, ProductsList, ViewCardList } from "./pages";
 import { useQuery, useQueryClient } from 'react-query';
 import { Navbar, ShowPages, CartProduct } from "./components";
 import ProductsContext from "./context/context";
@@ -41,9 +41,9 @@ function App() {
         <Navbar />
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='products' element={<ProductsList />} />
           <Route path='gp' element={<ViewCardList />} />
-          <Route path='products:id' element={<ProductsList />} />
+          <Route path='products' element={<ProductsList />} />
+          <Route path='/products/:id' element={<ProductsInfo />} />
           <Route path='*' element={<NotFoundPage />} />
         </Routes>
 

@@ -2,12 +2,10 @@ import React from 'react';
 import { remove } from '../store/cartSlice';
 import { useSelector, useDispatch } from 'react-redux';
 const ViewCardList = () => {
-    const usedispatch = useDispatch();
     const products = useSelector(state => state.cartState.cartList);
     const total = useSelector(state => state.cartState.total);
-    const handleonRemove = () => {
-        usedispatch(remove(products));
-    }
+    const disPatch = useDispatch();
+
     return (
         <div className='max-w-[1240px] mx-auto ' >
             <div>
@@ -35,7 +33,7 @@ const ViewCardList = () => {
                                 </div>
                             </div>
                             <div className='mx-3 my-3 ' >
-                                <button onClick={handleonRemove} className='  text-sm hover:text-red-500 font-SFPRODISPLAYREGULAR hover:border-b-[1px] border-black  ' >Remove</button>
+                                <button onClick={() => disPatch(remove(p))} className='  text-sm hover:text-red-500 font-SFPRODISPLAYREGULAR hover:border-b-[1px] border-black  ' >Remove</button>
 
                             </div>
                         </div>
