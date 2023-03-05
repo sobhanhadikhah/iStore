@@ -12,8 +12,11 @@ const cartSlice = createSlice({
             return {...state,cartList:updateCard,total:totalItems};
             
         },
-        remove(){
-            
+        remove(state,action){
+            const removeItem = state.cartList.filter(item=> item.id !== action.payload.id);
+            const totalItems = state.total - action.payload.price;
+            return {...state,total:totalItems,cartList:removeItem}
+
         },
     }
 }); 

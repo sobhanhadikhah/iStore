@@ -43,7 +43,7 @@ const Home = () => {
                 <div className='lg:flex hidden my-4 ' >
                     <h3 className='text-xl font-SFPRODISPLAYREGULAR font-bold ' >Big Deal !!!</h3>
                 </div>
-                <div className='    ' >
+                <div className=' hidden lg:flex   ' >
                     <Swiper className='  ' modules={[Navigation, Pagination, Scrollbar, A11y]} pagination={{ clickable: true }}
                         scrollbar={{ draggable: true }} effect='' spaceBetween={50} slidesPerView={3} autoplay="true" navigation   >
                         {Products.dataP.map((text, i) => {

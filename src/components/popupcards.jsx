@@ -37,7 +37,7 @@ function PopupCards({ close }) {
                 </button>
 
                 <div className="mt-6 space-y-6">
-                    <ul className="space-y-4">
+                    <ul className="space-y-4  ">
                         {prouctsCrads.map((p, i) => (
                             <li className="flex items-center gap-4" key={p.id} >
                                 <img
