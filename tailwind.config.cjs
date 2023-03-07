@@ -16,6 +16,6 @@ module.exports = {
     },
   },
   plugins: [
- [require("tailwindcss-brand-colors")],
+  [require("tailwindcss-brand-colors")],
   ],
 }

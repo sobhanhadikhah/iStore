@@ -15,7 +15,7 @@ const Navbar = () => {
             <div className='   ' >
                 <div className=' max-w-[1240px] mx-auto h-[98px]  ' >
                     <div className='flex justify-between py-8  ' >
-                        <Link to={"/"} className=' hidden   text-4xl   justify-center items-center text-center lg:flex   ml-4 text-white   ' >iStore</Link>
+                        <Link to={"/"} className=' hidden   text-4xl   justify-center items-center text-center lg:flex   ml-4 text-black font-thin   ' >iStore</Link>
                         <HiMenu size={20} onClick={handlenavToggle} className='text-white ml-4 mt-2 lg:hidden ' />
                         <Link to={`/`} ><h3 className=' lg:hidden  text-3xl   justify-center items-center text-center flex   ml-4 text-[#ffffff]   ' >iStore</h3></Link>
                         <div className='   items-center text-center ' >

@@ -3,10 +3,10 @@ import { add, remove } from '../store/cartSlice';
 import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux';
 import { LazyLoadImage } from "react-lazy-load-image-component";
-function HeaderMaderCarder({ img, title, price, id, porcutdss }) {
+function HeaderMaderCarder({ image, title, price, id, porcutdss }) {
     const disPathc = useDispatch();
     const handeleAddItem = () => {
-        disPathc(add({ img, title, price, id, }))
+        disPathc(add({ image, title, price, id, }))
     }
 
     return (
@@ -14,7 +14,7 @@ function HeaderMaderCarder({ img, title, price, id, porcutdss }) {
 
             <Link to={`/products/${id}`} className='flex flex-col    rounded-md border-t-2   mp-2 w-[300px] h-[400px] '  >
                 <div className='bg-white items-center justify-center text-center flex ' >
-                    <LazyLoadImage src={img} effect='blur' className='h-[230px] px-3 pt-2 ' alt={title} />
+                    <LazyLoadImage src={image} effect='blur' className='h-[230px] px-3 pt-2 ' alt={title} />
                 </div>
                 <div className='flex flex-col mx-3 relative  ' >
                     <h3 className='text-black mt-8 group-hover:underline group-hover:underline-offset-4  ' >{title.length > 60 ? title.slice(0, 60) + "..." : title}</h3>

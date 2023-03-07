@@ -7,7 +7,7 @@ function PopupCards({ close }) {
     return (
         <div className='absolute right-[20vh] pt-12 hidden lg:flex ' >
             <div
-                className="w-screen max-w-sm border border-gray-600 bg-gray-100 p-4 pt-4 sm:p-6 lg:p-8"
+                className="w-screen max-w-sm border border-gray-600 bg-white bg-opacity-50 backdrop-blur-md backdrop-filter rounded-2xl  p-4 pt-4 sm:p-6 lg:p-8"
 
                 role="dialog"
                 tabIndex="-1"
@@ -41,7 +41,7 @@ function PopupCards({ close }) {
                         {prouctsCrads.map((p, i) => (
                             <li className="flex items-center gap-4" key={p.id} >
                                 <img
-                                    src={p.img}
+                                    src={p.image}
                                     alt={p.title}
                                     className="h-16 w-16 rounded object-cover"
                                 />

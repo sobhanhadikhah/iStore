@@ -1,5 +1,6 @@
 import React from 'react';
 import { remove } from '../store/cartSlice';
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import { useSelector, useDispatch } from 'react-redux';
 const ViewCardList = () => {
     const products = useSelector(state => state.cartState.cartList);
@@ -19,11 +20,11 @@ const ViewCardList = () => {
             </div>
             {products.map((p, i) => {
                 return (
-                    <div key={p.id} >
+                    <div key={p.title} >
                         <div className='border my-3 ' >
                             <div className='flex justify-between bg-[#EAEDED]   ' >
                                 <div className='flex' >
-                                    <img className='w-[120px] p-2 ' src={p.img} alt="" />
+                                    <LazyLoadImage effect='blur' className='w-[120px] p-2 ' src={p.image} alt="" />
 
                                     <h3 className=' right-0 ml-4 font-SFPRODISPLAYREGULAR ' >{p.title}</h3>
                                 </div>
