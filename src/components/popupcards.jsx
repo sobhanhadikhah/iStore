@@ -7,7 +7,7 @@ function PopupCards({ close }) {
     return (
         <div className='absolute right-[20vh] pt-12 hidden lg:flex ' >
             <div
-                className="w-screen max-w-sm border border-gray-600 bg-white bg-opacity-50 backdrop-blur-md backdrop-filter rounded-2xl  p-4 pt-4 sm:p-6 lg:p-8"
+                className="w-screen max-w-sm border border-gray-600 bg-white   rounded-md  p-4 pt-4 sm:p-6 lg:p-8"
 
                 role="dialog"
                 tabIndex="-1"
@@ -68,14 +68,14 @@ function PopupCards({ close }) {
                         <Link
                             onClick={close}
                             to="gp"
-                            className="block rounded border border-gray-600 px-5 py-3 text-sm text-gray-600 transition hover:ring-1 hover:ring-gray-400"
+                            className="block rounded border border-gray-600 px-5 py-3 text-sm text-gray-600 transition hover:ring-1 font-SFPRODISPLAYREGULAR hover:ring-gray-400"
                         >
                             View my cart {`(${prouctsCrads.length})`}
                         </Link>
 
                         <Link
                             to="#"
-                            className="block rounded bg-gray-700 px-5 py-3 text-sm text-gray-100 transition hover:bg-gray-600"
+                            className="block rounded bg-black px-5 py-3 text-sm text-gray-100 transition font-SFPRODISPLAYREGULAR"
                         >
                             Checkout
                         </Link>

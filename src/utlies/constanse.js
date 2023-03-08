@@ -6,8 +6,8 @@ const navBarText = [
     }
     ,
     {   
-        id:"products",
-        title:"Products",
+        id:"Allproducts",
+        title:"All Products",
         link:"products",
     }
     ,

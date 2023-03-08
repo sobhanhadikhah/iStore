@@ -4,6 +4,7 @@ import NotFoundPage from "./erorr404";
 import ProductsList  from './products';
 import ViewCardList from "./viewCardList";
 import ProductsInfo from "./productsinfo";
+import ProductsByCategory from "./productByCategory";
 export{
     Home,
     ProductsInfo,
@@ -11,4 +12,5 @@ export{
     NotFoundPage,
     ProductsList,
     ViewCardList,
+    ProductsByCategory
 }

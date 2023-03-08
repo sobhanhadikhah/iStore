@@ -6,6 +6,7 @@ const ViewCardList = () => {
     const products = useSelector(state => state.cartState.cartList);
     const total = useSelector(state => state.cartState.total);
     const disPatch = useDispatch();
+    const productListID = Math.random()
 
     return (
         <div className='max-w-[1240px] mx-auto ' >
@@ -20,7 +21,7 @@ const ViewCardList = () => {
             </div>
             {products.map((p, i) => {
                 return (
-                    <div key={p.title} >
+                    <div key={p.id} >
                         <div className='border my-3 ' >
                             <div className='flex justify-between bg-[#EAEDED]   ' >
                                 <div className='flex' >

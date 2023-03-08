@@ -3,12 +3,13 @@ const cartSlice = createSlice({
     name: "cart",
     initialState:{
         cartList: [],
-        total:0
+        total:0,
+        
     },
     reducers: {
         add(state,action){
             const updateCard = state.cartList.concat(action.payload);
-            const totalItems = state.total + action.payload.price;
+            let totalItems = state.total + action.payload.price;
             return {...state,cartList:updateCard,total:totalItems};
             
         },

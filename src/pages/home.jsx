@@ -51,9 +51,11 @@ const Home = () => {
                 {status === "error" && <p>Error fetching data</p>}
                 {status === "loading" && <p>Fetching data...</p>}
                 {status === "success" && (
-                    <div className='flex flex-wrap gap-6 justify-center items-center ' >
+                    <div className='flex lg:flex-row md:flex-wrap flex-col   gap-3   ' >
                         {data.map((category, i) => (
-                            <Card key={category} titleCategory={category} />
+                            
+                                <Card  key={category} titleCategory={category} />
+                            
                         ))}
                     </div>
                 )}
