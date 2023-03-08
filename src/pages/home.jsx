@@ -17,6 +17,7 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { Link } from 'react-router-dom';
 import { fetchProductsCategory } from '../apis/apiProducts';
 const Home = () => {
+    /* this comment in branch v1.1 has to be */
 
     useTitle("Home");
     const Products = useContext(productsContext);
