@@ -27,7 +27,7 @@ const ProductsByCategory = () => {
                 {status === "error" && <p>Error fetching data</p>}
                 {status === "loading" && <Loading />}
 
-                <div className='grid grid-cols-4 gap-6 ' >
+                <div className='flex flex-wrap items-center md:justify-start justify-center    ' >
 
                     {status === "success" && data.map((p, i) => {
                         return <HeaderMaderCarder id={p.id} key={p.id} title={p.title} price={p.price} image={p.image} />

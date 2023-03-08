@@ -45,7 +45,7 @@ function ProductsInfo() {
                         </div>
                         <div className='flex justify-center md:justify-end mt-5  ' >
                             <div className=' md:flex text-center hidden justify-center items-center mr-5' >
-                                <h1 className="text-xl" >$ {Info && Info.price}</h1>
+                                <h1 className="text-xl  " >$ {Info && Info.price}</h1>
                             </div>
 
                             <button onClick={() => disPatch(add(Info))} className='bg-blue-500 mx-2 p-2 hidden md:flex font-SFPRODISPLAYREGULAR w-full md:w-auto cursor-pointer
@@ -53,12 +53,12 @@ function ProductsInfo() {
                             {/* for mobile btn */}
                             <div className='bg-white border-t border-gray-300 z-50 absolute bottom-0 w-full' >
                                 <div className=' my-4 mx-3 bottom-0 absolute' >
-                                    <h1 className="text-xl" >$ {Info && Info.price}</h1>
+                                    <h1 className="text-xl md:hidden flex " >$ {Info && Info.price}</h1>
                                 </div>
                                 <div className='flex  mt-5  justify-end ' >
 
-                                    <button onClick={() => disPatch(add(Info))} className='bg-blue-500  mx-2 my-3 p-2 md:hidden flex font-SFPRODISPLAYREGULAR w-auto md:w-auto cursor-pointer
-                             hover:bg-blue-600  hover:ring-black text-white md:rounded-full rounded-md   ' >Add Card</button>
+                                    <button onClick={() => disPatch(add(Info))} className='bg-blue-500 mx-2 my-3 p-2 md:hidden flex font-SFPRODISPLAYREGULAR w-auto md:w-auto cursor-pointer
+                                    hover:bg-blue-600  hover:ring-black text-white md:rounded-full rounded-md   ' >Add Card</button>
                                 </div>
                             </div>
 

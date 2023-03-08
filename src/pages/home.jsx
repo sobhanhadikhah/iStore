@@ -8,6 +8,7 @@ import useTitle from '../hooks/useTitle';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { Swiper, SwiperSlide } from "swiper/react";
 import axios from 'axios';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
@@ -41,25 +42,17 @@ const Home = () => {
                 </div>
             </div>
             <div className='max-w-[1240px] mx-auto  mt-16 flex flex-wrap gap-4 justify-center my-6 ' >
-                {/* <div className='h-[245px] bg-orange-500 w-[290px] rounded-md grid shadow-xl  shadow-gray-400  hover:scale-105 transition-all duration-150 ease-in-out cursor-pointer ' >
-                    <div className='justify-center grid  place-content-center  ' >
-                        <h1 className='text-2xl font-SFPRODISPLAYREGULAR tracking-widest capitalize font-semibold text-white ' >Laptops</h1>
-
-                    </div>
-
-                </div> */}
                 {status === "error" && <p>Error fetching data</p>}
-                {status === "loading" && <p>Fetching data...</p>}
+                {status === "loading" && <div className='text-blue-400' ><AiOutlineLoading3Quarters className='animate-spin  ' size={20} /></div>}
                 {status === "success" && (
                     <div className='flex lg:flex-row md:flex-wrap flex-col   gap-3   ' >
                         {data.map((category, i) => (
-                            
-                                <Card  key={category} titleCategory={category} />
-                            
+
+                            <Card key={category} titleCategory={category} />
+
                         ))}
                     </div>
                 )}
-
 
             </div>
 
