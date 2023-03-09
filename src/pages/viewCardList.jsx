@@ -6,7 +6,7 @@ const ViewCardList = () => {
     const products = useSelector(state => state.cartState.cartList);
     const total = useSelector(state => state.cartState.total);
     const disPatch = useDispatch();
-    const productListID = Math.random()
+
 
     return (
         <div className='max-w-[1240px] mx-auto ' >

@@ -5,6 +5,7 @@ import ProductsList  from './products';
 import ViewCardList from "./viewCardList";
 import ProductsInfo from "./productsinfo";
 import ProductsByCategory from "./productByCategory";
+import About from "./about";
 export{
     Home,
     ProductsInfo,
@@ -12,5 +13,6 @@ export{
     NotFoundPage,
     ProductsList,
     ViewCardList,
-    ProductsByCategory
+    ProductsByCategory,
+    About
 }

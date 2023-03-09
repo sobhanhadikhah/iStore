@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react'
-import { Home, Loading, NotFoundPage, ProductsByCategory, ProductsInfo, ProductsList, ViewCardList } from "./pages";
-import { useQuery, useQueryClient } from 'react-query';
-import { Navbar, ShowPages, CartProduct } from "./components";
+import { useState,  } from 'react'
+import { About, Home, Loading, NotFoundPage, ProductsByCategory, ProductsInfo, ProductsList, ViewCardList } from "./pages";
+import { useQuery, } from 'react-query';
+import { Navbar } from "./components";
 import ProductsContext from "./context/context";
 import axios from 'axios';
 import { Route, Routes } from 'react-router-dom';
@@ -45,6 +45,7 @@ function App() {
           <Route path='products' element={<ProductsList />} />
           <Route path='/products/:id' element={<ProductsInfo />} />
           <Route path='/product/:category' element={<ProductsByCategory />} />
+          <Route path='about' element={<About />} />
           <Route path='*' element={<NotFoundPage />} />
         </Routes>
 

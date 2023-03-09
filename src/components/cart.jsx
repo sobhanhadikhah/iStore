@@ -23,12 +23,12 @@ const Card = ({ titleCategory }) => {
                 </div>
                 <div className=' w-full h-full top-0 left-0 absolute text-center flex lg:hidden flex-col justify-end pb-8  ' >
                     <div className='flex items-center justify-center ' >
-                        <Link className='bg-black text-white rounded-3xl flex text-center justify-center place-items-center w-[120px] py-2 text-lg ' >Show All</Link>
+                        <button className='bg-black text-white rounded-3xl flex text-center justify-center place-items-center w-[120px] py-2 text-lg ' >Show All</button>
                     </div>
                 </div>
                 <div className='card-border text-center flex flex-col justify-end pb-8  ' >
                     <div className='lg:flex hidden items-center justify-center ' >
-                        <Link className='bg-black text-white rounded-3xl flex text-center justify-center place-items-center w-[120px] py-2 text-lg ' >Show All</Link>
+                        <button className='bg-black text-white rounded-3xl flex text-center justify-center place-items-center w-[120px] py-2 text-lg ' >Show All</button>
                     </div>
                 </div>
 

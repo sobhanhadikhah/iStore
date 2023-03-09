@@ -1,13 +1,26 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { add, remove } from '../store/cartSlice';
 import { Link } from 'react-router-dom'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { LazyLoadImage } from "react-lazy-load-image-component";
 function HeaderMaderCarder({ image, title, price, id, porcutdss }) {
     const disPathc = useDispatch();
+    const [inCard, setInCard] = useState(false);
+    const cartList = useSelector(state => state.cartState.cartList);
     const handeleAddItem = () => {
         disPathc(add({ image, title, price, id, }))
     }
+    const handeleRemoveItem = () => {
+        disPathc(remove({ image, title, price, id, }))
+    }
+    useEffect(() => {
+        const productInCart = cartList.find(item => item.id === id);
+        if (productInCart) {
+            setInCard(true)
+        } else {
+            setInCard(false);
+        }
+    }, [cartList, id])
 
     return (
         <div className=' border-blue-200 rounded-lg font-SFPRODISPLAYREGULAR ' >
@@ -25,7 +38,9 @@ function HeaderMaderCarder({ image, title, price, id, porcutdss }) {
                     <p className='tracking-wide text-gray-900  ' > <span className='text-xs' >$</span> {price}</p>
 
                 </div>
-                <button onClick={handeleAddItem} className='bg-blue-500 max-w-[140px] rounded-md m-2 text-white hover:bg-blue-600 capitalize  py-1 px-[5.5px] relative    ' >add to card</button>
+                {inCard === false ? (<button onClick={handeleAddItem} className='bg-blue-500 max-w-[140px] rounded-md m-2 text-white hover:bg-blue-600 capitalize  py-1 px-[5.5px] relative    ' >add to card</button>)
+                    : (<button onClick={handeleRemoveItem} className='bg-red-500 max-w-[140px] rounded-md m-2 text-white hover:bg-red-600 capitalize  py-1 px-[5.5px] relative    ' >Remove</button>)}
+
 
             </div>
         </div>

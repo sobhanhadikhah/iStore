@@ -2,8 +2,10 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { navBarText } from '../utlies/constanse';
 import { AiOutlineShoppingCart } from "react-icons/ai";
+import { motion } from 'framer-motion';
 import { HiMenu } from "react-icons/hi"
 import PopupCards from './popupcards';
+import { fadeIn } from '../motion/motion';
 import { useSelector } from 'react-redux';
 const Navbar = () => {
     const products = useSelector(state => state.cartState.cartList);
@@ -11,11 +13,11 @@ const Navbar = () => {
     const [Cardtoogle, setCardtoogle] = useState(false)
     const handlenavToggle = () => setNavToggle(!navToggle);
     return (
-        <div className='z-30  sticky  top-0 bg-[#1D1D1F] lg:backdrop-blur-lg lg:bg-opacity-40 lg:backdrop-filter  ' >
+        <motion.div variants={fadeIn} initial="hidden" animate="visible" className='z-30  sticky  top-0 bg-[#1D1D1F] lg:backdrop-blur-lg lg:bg-opacity-40 lg:backdrop-filter  ' >
             <div className='   ' >
                 <div className=' max-w-[1240px] mx-auto h-[98px]  ' >
                     <div className='flex justify-between py-8  ' >
-                        <Link to={"/"} className=' hidden   text-4xl   justify-center items-center text-center lg:flex   ml-4 text-black font-thin   ' >iStore</Link>
+                        <Link to={"/"} className=' hidden   text-4xl   justify-center items-center text-center lg:flex   ml-4 text-black font-SFPRODISPLAYREGULAR    ' >iStore</Link>
                         <HiMenu size={20} onClick={handlenavToggle} className='text-white ml-4 mt-2 lg:hidden ' />
                         <Link to={`/`} ><h3 className=' lg:hidden  text-3xl   justify-center items-center text-center flex   ml-4 text-[#ffffff]   ' >iStore</h3></Link>
                         <div className='   items-center text-center ' >
@@ -26,6 +28,7 @@ const Navbar = () => {
                                 })}
                                 <div className='flex' >
                                     <AiOutlineShoppingCart className='mt-[11px]  hover:text-white cursor-pointer' onClick={() => setCardtoogle(!Cardtoogle)} size={23} />
+                                    {/* useSelector for adding numbe of item you take ... */}
                                     <div>
                                         <h6 className='bg-black px-[5.5px] text-sm rounded-full  ml-1 font-SFPRODISPLAYREGULAR' >{products.length}</h6>
                                     </div>
@@ -56,7 +59,7 @@ const Navbar = () => {
                 </div>
             </div>
 
-        </div>
+        </motion.div>
     )
 }
 

@@ -22,8 +22,9 @@ const ProductsByCategory = () => {
     }
     return (
         <div>
-            <ShowPages title={category} />
             <div className='max-w-[1240px] mx-auto gap-6 ' >
+                <h1 className='text-3xl font-SFPRODISPLAYREGULAR py-4 capitalize ml-3 ' >{category}</h1>
+                <div className='border border-gray-300 my-3 ' />
                 {status === "error" && <p>Error fetching data</p>}
                 {status === "loading" && <Loading />}
 
