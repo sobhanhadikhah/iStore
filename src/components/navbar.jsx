@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { navBarText } from '../utlies/constanse';
-import { AiOutlineShoppingCart } from "react-icons/ai";
-import { motion } from 'framer-motion';
+import { AiOutlineShoppingCart, AiOutlineClose } from "react-icons/ai";
+import { motion, AnimatePresence } from 'framer-motion';
 import { HiMenu } from "react-icons/hi"
 import PopupCards from './popupcards';
-import { BoxVarint, FadeinNavbar, fadeIn, listVaritions, mobileNavVarient } from '../motion/motion';
+
+import { BoxVarint, FadeinNavbar, closeMenuVar, fadeIn, listVaritions, mobileNavVarient, popCards } from '../motion/motion';
 import { useSelector } from 'react-redux';
 const Navbar = () => {
     const products = useSelector(state => state.cartState.cartList);
@@ -13,12 +14,29 @@ const Navbar = () => {
     const [Cardtoogle, setCardtoogle] = useState(false)
     const handlenavToggle = () => setNavToggle(!navToggle);
     return (
-        <div className='z-30  sticky  top-0 bg-[#1D1D1F] lg:backdrop-blur-lg lg:bg-opacity-40 lg:backdrop-filter  ' >
+        <motion.div variants={FadeinNavbar} initial="hidden" animate="visible" className='z-30  sticky  top-0 bg-[#1D1D1F] lg:backdrop-blur-lg lg:bg-opacity-40 lg:backdrop-filter  ' >
             <div className='   ' >
                 <div className=' max-w-[1240px] mx-auto h-[98px]  ' >
                     <div className='flex justify-between py-8  ' >
                         <Link to={"/"} className=' hidden   text-4xl   justify-center items-center text-center lg:flex   ml-4 text-black font-SFPRODISPLAYREGULAR    ' >iStore</Link>
-                        <HiMenu size={20} onClick={handlenavToggle} className='text-white ml-4 mt-2 lg:hidden ' />
+                        <div className='' >
+
+
+
+                            <motion.div variants={popCards} initial="hidden" animate={navToggle === false ? "visible" : "hidden"}  >
+                                <HiMenu size={20} onClick={handlenavToggle} className='text-white ml-4 mt-2 lg:hidden ' />
+
+                            </motion.div>
+
+                            <motion.div variants={popCards} initial="hidden" animate={navToggle === true ? "visible" : "hidden"} >
+                                <AiOutlineClose className='text-white ml-4  lg:hidden' onClick={handlenavToggle} size={20} />
+
+                            </motion.div>
+
+
+
+
+                        </div>
                         <Link to={`/`} ><h3 className=' lg:hidden  text-3xl   justify-center items-center text-center flex   ml-4 text-[#ffffff]   ' >iStore</h3></Link>
                         <div className='   items-center text-center ' >
                             <ul variants={FadeinNavbar} className='lg:flex text-[#f5f5ff] hidden space-x-8 mr-4   font-SFPRODISPLAYREGULAR  ' >
@@ -44,30 +62,44 @@ const Navbar = () => {
 
 
                         </div>
-                        {Cardtoogle === true ? < PopupCards close={() => setCardtoogle(!Cardtoogle)} /> : ""}
+                        {/* mobile navbar */}
+                        < PopupCards setCardtoogle={setCardtoogle} Cardtoogle={Cardtoogle} />
+
+                        <AnimatePresence>
+
+                            <motion.div
+
+                                variants={mobileNavVarient}
+                                initial="hidden"
+                                animate={navToggle === true ? "visible" : "hidden"}
+                                className={`lg:hidden absolute w-full mt-16 max-w-[300px]  z-50 flex flex-col text-center bg-[#1D1D1F] gap-4 font-SFPRODISPLAYREGULAR
+                            ${navToggle === true ? `h-screen` : ""}  `}>
+
+                                {navToggle === true ? navBarText.map((text) => {
+                                    return (
 
 
-                        <motion.div variants={mobileNavVarient} initial="hidden" animate="visible" className={`lg:hidden absolute w-full mt-16 max-w-[300px]  z-50 flex flex-col text-center bg-[#1D1D1F] gap-y-4 font-SFPRODISPLAYREGULAR  ${navToggle === true ? `h-screen` : ""}  `} >
-                            {navToggle === true ? navBarText.map((text) => {
-                                return (
+
+                                        <Link variants={listVaritions} key={text.id} onClick={handlenavToggle} to={text.link} className='text-[14px] mt-16  text-white hover:text-[#d3d3d3] '  >
+                                            <motion.li variants={listVaritions} className='list-none' >
+                                                {text.title}
+                                            </motion.li>
+                                        </Link>
 
 
-                                    <motion.li className='list-none' variants={listVaritions} key={text.id} >
-                                        <Link onClick={handlenavToggle} to={text.link} className='text-[14px] my-3 leading-[44px] text-white hover:text-[#d3d3d3] '  >{text.title}</Link>
-                                    </motion.li>
 
 
+                                    )
+                                }) : ""}
+                            </motion.div>
 
-                                )
-                            }) : ""}
-                        </motion.div>
-
+                        </AnimatePresence>
                     </div>
 
                 </div>
             </div>
 
-        </div >
+        </motion.div >
     )
 }
 

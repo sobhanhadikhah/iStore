@@ -27,18 +27,7 @@ export const BoxVarint = {
         }
     }
 }
-export const listVaritions  = {
-    hidden:{
-        scale:0
-    },
-    visible:{
-        scale:1,
-        rotate:360,
-        
 
-    },
-    
-}
 export const FadeinNavbar = {
     hidden:{
         scale:.8,
@@ -56,7 +45,7 @@ export const FadeinNavbar = {
 }
 export const  varBox = {
     hidden:{
-        opacity:0        
+        opacity:0     
     },
     visible:{
     opacity:1,
@@ -84,19 +73,83 @@ export const itemBox = {
 }
 export const mobileNavVarient = {
     hidden:{
-        y: -100
+        x: -1000
 
     },
 
     visible:{
-        y: 0,
+        x: 0,
+        transition: {
+            type: "tween",
+            duration: 0.5,
+            delayChildren: 0.3,
+            staggerChildren: 0.5
+          }
+    },
+    exit:{
+        
+        x:-1000,
+        transition: {
+            type: "spring",
+            bounce: 0,
+            duration: 0.3
+          }
+    }
+    
+
+}
+
+export const listVaritions  = {
+    hidden:{
+        opacity: 0,
+        scale:0,  
+          transition: { duration: 0.2 }
+
+    },
+    visible:{
+        opacity: 1,
+        scale:1,
+    transition:
+     {
+        
+     type: "spring",
+      stiffness: 300,
+       damping: 24 
+    }
+    },
+    
+    
+}
+export const closeMenuVar = {
+    hidden:{
+        scale:0,
+        opacity:0
+    },
+    visible:{
+        scale:1,
+        opacity:1,
         transition:{
-            duration: 1
+            type: "spring",
+            stiffness: 300,
+             damping: 24 ,
         }
     }
 }
-
-
+export const popCards = {
+    hidden:{
+        opacity:0,
+        scale:0,
+        display:"hidden"
+    },
+    visible:{
+        opacity:1,
+        scale:1,
+        transition:{
+            
+            duration:0.5
+        }
+    }
+}
 
 
 

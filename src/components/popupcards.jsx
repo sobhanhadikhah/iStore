@@ -1,11 +1,15 @@
 import React from 'react'
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-function PopupCards({ close }) {
+import { popCards } from '../motion/motion';
+import { motion } from 'framer-motion';
+function PopupCards({ Cardtoogle, setCardtoogle }) {
     const prouctsCrads = useSelector(state => state.cartState.cartList);
     const total = useSelector(state => state.cartState.total);
     return (
-        <div className='absolute right-[20vh] pt-12 hidden lg:flex ' >
+        <motion.div
+            inherit="hidden" animate={Cardtoogle === true ? "visible" : "hidden"} variants={popCards}
+            className='absolute right-[20vh] pt-12 hidden lg:flex ' >
             <div
                 className="w-screen max-w-sm border border-gray-600 bg-white   rounded-md  p-4 pt-4 sm:p-6 lg:p-8"
 
@@ -15,7 +19,7 @@ function PopupCards({ close }) {
                 <div>
                     <h1>Total Price: $ {total}</h1>
                 </div>
-                <button onClick={close}
+                <button onClick={() => setCardtoogle(!Cardtoogle)}
                     className="relative ml-auto -mr-4 block text-gray-600 transition hover:scale-110"
                 >
                     <span className="sr-only">Close cart</span>
@@ -66,7 +70,7 @@ function PopupCards({ close }) {
 
                     <div className="space-y-4 text-center">
                         <Link
-                            onClick={close}
+                            onClick={() => setCardtoogle(!Cardtoogle)}
                             to="gp"
                             className="block rounded border border-gray-600 px-5 py-3 text-sm text-gray-600 transition hover:ring-1 font-SFPRODISPLAYREGULAR hover:ring-gray-400"
                         >
@@ -84,7 +88,7 @@ function PopupCards({ close }) {
                     </div>
                 </div>
             </div>
-        </div>
+        </motion.div>
     )
 }
 

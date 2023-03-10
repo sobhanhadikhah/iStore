@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from 'react'
 import { Card, ShowPages, CartProduct, HeaderMaderCarder } from '../components';
 import "../styles/card.css";
 import 'swiper/css';
+import { motion } from 'framer-motion';
 import 'swiper/css';
 import { useQuery } from 'react-query';
 import useTitle from '../hooks/useTitle';
@@ -16,6 +17,7 @@ import productsContext from '../context/context';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { Link } from 'react-router-dom';
 import { fetchProductsCategory } from '../apis/apiProducts';
+import { fadeIn, popCards } from '../motion/motion';
 const Home = () => {
     /* this comment in branch v1.1 has to be */
 
@@ -46,13 +48,17 @@ const Home = () => {
                 {status === "error" && <p>Error fetching data</p>}
                 {status === "loading" && <div className='text-blue-400' ><AiOutlineLoading3Quarters className='animate-spin  ' size={20} /></div>}
                 {status === "success" && (
-                    <div className='flex lg:flex-row md:flex-wrap flex-col   gap-3   ' >
+                    <motion.div initial="hidden" whileInView={`visible`} variants={fadeIn} className='flex lg:flex-row md:flex-wrap flex-col   gap-3   ' >
                         {data.map((category, i) => (
 
-                            <Card key={category} titleCategory={category} />
+                            <motion.div variants={popCards} key={category} >
+
+                                <Card titleCategory={category} />
+
+                            </motion.div>
 
                         ))}
-                    </div>
+                    </motion.div>
                 )}
 
             </div>
