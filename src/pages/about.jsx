@@ -112,9 +112,9 @@ const About = () => {
                 whileInView="visible"
                 viewport={{ once: false }}
                 variants={BoxVarint}
-                className='bg-lime-500 h-[25rem] w-[25rem] rounded-xl grid place-items-center   '   >
+                className='bg-purple-500 h-[25rem] w-[25rem] rounded-xl grid place-items-center   '   >
                 {[1, 2, 3].map(box => {
-                    return <motion.div  variants={listVaritions} className='bg-white h-[5rem] w-[5rem] rounded-3xl ' ></motion.div>
+                    return <motion.div variants={listVaritions} className='bg-white h-[5rem] w-[5rem] rounded-3xl ' ></motion.div>
                 })}
 
             </motion.div>

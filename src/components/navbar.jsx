@@ -5,7 +5,7 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import { motion } from 'framer-motion';
 import { HiMenu } from "react-icons/hi"
 import PopupCards from './popupcards';
-import { fadeIn } from '../motion/motion';
+import { BoxVarint, FadeinNavbar, fadeIn, listVaritions, mobileNavVarient } from '../motion/motion';
 import { useSelector } from 'react-redux';
 const Navbar = () => {
     const products = useSelector(state => state.cartState.cartList);
@@ -13,7 +13,7 @@ const Navbar = () => {
     const [Cardtoogle, setCardtoogle] = useState(false)
     const handlenavToggle = () => setNavToggle(!navToggle);
     return (
-        <motion.div variants={fadeIn} initial="hidden" animate="visible" className='z-30  sticky  top-0 bg-[#1D1D1F] lg:backdrop-blur-lg lg:bg-opacity-40 lg:backdrop-filter  ' >
+        <div className='z-30  sticky  top-0 bg-[#1D1D1F] lg:backdrop-blur-lg lg:bg-opacity-40 lg:backdrop-filter  ' >
             <div className='   ' >
                 <div className=' max-w-[1240px] mx-auto h-[98px]  ' >
                     <div className='flex justify-between py-8  ' >
@@ -21,10 +21,10 @@ const Navbar = () => {
                         <HiMenu size={20} onClick={handlenavToggle} className='text-white ml-4 mt-2 lg:hidden ' />
                         <Link to={`/`} ><h3 className=' lg:hidden  text-3xl   justify-center items-center text-center flex   ml-4 text-[#ffffff]   ' >iStore</h3></Link>
                         <div className='   items-center text-center ' >
-                            <ul className='lg:flex text-[#f5f5ff] hidden space-x-8 mr-4   font-SFPRODISPLAYREGULAR  ' >
+                            <ul variants={FadeinNavbar} className='lg:flex text-[#f5f5ff] hidden space-x-8 mr-4   font-SFPRODISPLAYREGULAR  ' >
 
                                 {navBarText.map((text, i) => {
-                                    return <Link to={text.link} className='text-[14px] leading-[44px] hover:text-[#d3d3d3] ' key={text.id} >{text.title}</Link>
+                                    return <motion.li key={text.id} variants={listVaritions} ><Link to={text.link} className='text-[14px] leading-[44px] hover:text-[#d3d3d3] '  >{text.title}</Link></motion.li>
                                 })}
                                 <div className='flex' >
                                     <AiOutlineShoppingCart className='mt-[11px]  hover:text-white cursor-pointer' onClick={() => setCardtoogle(!Cardtoogle)} size={23} />
@@ -45,21 +45,29 @@ const Navbar = () => {
 
                         </div>
                         {Cardtoogle === true ? < PopupCards close={() => setCardtoogle(!Cardtoogle)} /> : ""}
-                        <ul className={`lg:hidden absolute w-full mt-16  z-50 flex flex-col text-center bg-[#1D1D1F] backdrop-blur-lg bg-opacity-40 backdrop-filter font-SFPRODISPLAYREGULAR  ${navToggle === true ? `h-screen` : ""}  `} >
+
+
+                        <motion.div variants={mobileNavVarient} initial="hidden" animate="visible" className={`lg:hidden absolute w-full mt-16 max-w-[300px]  z-50 flex flex-col text-center bg-[#1D1D1F] gap-y-4 font-SFPRODISPLAYREGULAR  ${navToggle === true ? `h-screen` : ""}  `} >
                             {navToggle === true ? navBarText.map((text) => {
                                 return (
-                                    <div className=' z-50 flex flex-col   ' key={text.id}  >
+
+
+                                    <motion.li className='list-none' variants={listVaritions} key={text.id} >
                                         <Link onClick={handlenavToggle} to={text.link} className='text-[14px] my-3 leading-[44px] text-white hover:text-[#d3d3d3] '  >{text.title}</Link>
-                                    </div>
+                                    </motion.li>
+
+
+
                                 )
                             }) : ""}
-                        </ul>
+                        </motion.div>
+
                     </div>
 
                 </div>
             </div>
 
-        </motion.div>
+        </div >
     )
 }
 
